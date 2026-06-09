@@ -1,26 +1,15 @@
 import './index.css'
-import Nav from './components/Nav'
-import Hero from './components/Hero'
-import PullQuote from './components/PullQuote'
-import Bio from './components/Bio'
-import Stats from './components/Stats'
-import Research from './components/Research'
-import Pillars from './components/Pillars'
-import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Article from './pages/Article'
 
 export default function App() {
   return (
-    <>
-      <Nav />
-      <main style={{ paddingTop: 63 }}>
-        <Hero />
-        <PullQuote />
-        <Bio />
-        <Stats />
-        <Research />
-        <Pillars />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/articles/:slug" element={<Article />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

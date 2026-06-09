@@ -4,7 +4,7 @@ const COLS = [
     links: [
       { label: 'About', href: '#about' },
       { label: 'Expertise', href: '#pillars' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'Contact', href: 'mailto:dshokar@princetonbp.com' },
     ],
   },
   {

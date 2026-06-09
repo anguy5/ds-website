@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const POSTS = [
   {
@@ -14,7 +15,7 @@ const POSTS = [
     title: 'Direct-to-Patient Pharma Models: A Strategic and Regulatory Appraisal of Risks, Opportunities, and the Critical Role of Medical Affairs',
     date: 'Oct 3, 2025',
     read: '8 min read',
-    url: 'https://www.dillonshokar.com/post/direct-to-patient-pharma-models-a-strategic-and-regulatory-appraisal-of-risks-opportunities-and-t',
+    url: '/articles/direct-to-patient',
     bg: '#254733',
   },
   {
@@ -22,7 +23,7 @@ const POSTS = [
     title: 'GLP‑1, SGLT2 and AI in Longevity: Where the Real Value Lies',
     date: 'Jun 8, 2025',
     read: '4 min read',
-    url: 'https://www.dillonshokar.com/post/glp-1-sglt2-and-ai-in-longevity-where-the-real-value-lies',
+    url: '/articles/glp1-longevity',
     bg: '#1C3A28',
   },
   {
@@ -30,7 +31,7 @@ const POSTS = [
     title: 'The End of Empiricism: Merck Bets Big on Biomarker-Led Oncology',
     date: 'May 13, 2025',
     read: '5 min read',
-    url: 'https://www.dillonshokar.com/post/test-post-2',
+    url: '/articles/end-of-empiricism',
     bg: '#2E5040',
   },
 ]
@@ -61,11 +62,14 @@ export default function Research() {
 
 function PostCard({ post }) {
   const [hover, setHover] = useState(false)
+  const isInternal = post.url.startsWith('/')
+  const Tag = isInternal ? Link : 'a'
+  const extraProps = isInternal
+    ? { to: post.url }
+    : { href: post.url, target: '_blank', rel: 'noopener noreferrer' }
   return (
-    <a
-      href={post.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Tag
+      {...extraProps}
       style={{ ...s.card, ...(hover ? s.cardHover : {}) }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -78,7 +82,7 @@ function PostCard({ post }) {
         <p style={s.cardMeta}>{post.date} · {post.read}</p>
         <span style={s.readLink}>Read →</span>
       </div>
-    </a>
+    </Tag>
   )
 }
 
