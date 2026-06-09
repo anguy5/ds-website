@@ -1,7 +1,7 @@
 const PILLARS = [
   {
     num: '01',
-    title: 'Longevity Science & AI',
+    title: 'AI & Longevity',
     body: 'AI-powered consumer health applications aimed at extending healthspan and redefining how preventive care is personalised, monitored, and delivered.',
   },
   {

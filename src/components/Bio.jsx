@@ -1,10 +1,8 @@
 const PILLS = [
-  'Integrated Evidence Generation',
+  'AI & Longevity',
   'Precision Medicine',
-  'Biomarker Strategy',
   'Direct-to-Patient',
-  'Longevity Science',
-  'Medical Affairs',
+  'Evidence Generation',
 ]
 
 export default function Bio() {
@@ -14,7 +12,7 @@ export default function Bio() {
       <div style={s.header}>
         <p style={s.eyebrow}>About Dillon</p>
         <h2 style={s.heading}>
-          Leading consultant in Integrated Evidence Generation Planning.
+          Investing in the forces reshaping healthcare.
         </h2>
       </div>
 
@@ -36,9 +34,7 @@ export default function Bio() {
         {/* Main text */}
         <div style={s.main}>
           {[
-            'Dillon Shokar is a leading biopharmaceutical consultant specialising in integrated evidence generation — the discipline of combining clinical, real-world, and economic data to build the evidence base that gets drugs approved, reimbursed, and adopted.',
-            'Through Princeton Biopartners and EVEXA, Dillon advises life sciences organisations navigating three structural shifts reshaping healthcare: the rise of AI-powered longevity applications, the maturation of biomarker-driven precision medicine, and the emergence of direct-to-patient distribution models.',
-            'His work sits at the intersection of clinical strategy, market access, and investment analysis — helping organisations understand not just what the evidence says, but what it means for commercial outcomes.',
+            'Dillon Shokar is an investor and operator focused on the forces reshaping healthcare. As Co-Founder and CEO of Princeton Biopartners, he advises leading pharmaceutical and biotech companies on asset strategy, operating models, and integrated evidence generation, giving him a working view of the industry from the inside. His investing and writing concentrate on three structural shifts: the rise of AI-powered consumer health applications built around longevity, the growing role of biomarker-driven precision medicine, and the emergence of direct-to-patient distribution. Together, these forces are redefining how healthcare is personalized, accessed, and delivered.',
           ].map((para, i) => (
             <p key={i} style={{ ...s.para, ...(i < 2 ? { marginBottom: 22 } : {}) }}>{para}</p>
           ))}

@@ -14,13 +14,12 @@ export default function Hero() {
 
       {/* Right: text */}
       <div style={s.content}>
-        <p style={s.eyebrow}>Biopharmaceutical Consultant</p>
-        <h1 style={s.h1}>Turning evidence<br />into strategy.</h1>
-        <p style={s.lead}>
-          Leading consultant in integrated evidence generation for the biopharmaceutical industry.
-        </p>
+        <p style={s.eyebrow}>Biopharmaceutical Operator, Investor, Advisor</p>
+        <h1 style={s.h1}>Building &<br />Backing Biotech</h1>
+       
         <p style={s.body}>
-          Co-Founder & CEO of Princeton Biopartners. Thought leadership and specialization in biopharmaceutical evidence generation strategy, including real-world evidence, late-phase clinical development, and health economics and outcomes research.
+          Dillon is the Co-Founder and CEO of Princeton Biopartners, which advises leading pharmaceutical and biotech companies on asset strategy, operating models, and integrated evidence generation. He also builds and invests in early-stage healthcare companies, working with founders on how those businesses are designed, financed, and scaled.
+His perspective comes from both sides of the industry: building new companies, and advising the established ones.
         </p>
         <div style={s.btns}>
           <span

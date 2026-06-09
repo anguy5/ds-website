@@ -18,7 +18,7 @@ const POSTS = [
     bg: '#254733',
   },
   {
-    tag: 'Longevity Science & AI',
+    tag: 'AI & Longevity',
     title: 'GLP‑1, SGLT2 and AI in Longevity: Where the Real Value Lies',
     date: 'Jun 8, 2025',
     read: '4 min read',
