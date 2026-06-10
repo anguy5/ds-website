@@ -51,10 +51,6 @@ export default function Footer() {
       </div>
       <div style={s.bottom}>
         <p style={s.copy}>© {new Date().getFullYear()} Dillon Shokar · Princeton Biopartners</p>
-        <div style={s.legal}>
-          <a href="#" style={s.legalLink}>Privacy</a>
-          <a href="#" style={s.legalLink}>Terms</a>
-        </div>
       </div>
     </footer>
   )
