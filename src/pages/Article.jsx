@@ -1,6 +1,16 @@
 import { useParams, Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { getArticle } from '../data/articles'
 import Footer from '../components/Footer'
+
+const SITE_URL = 'https://dillonshokar.com'
+
+function getArticleDescription(article) {
+  const abstract = article.content.find(b => b.type === 'abstract')
+  const firstParagraph = article.content.find(b => b.type === 'p')
+  const raw = abstract?.text || firstParagraph?.text || article.title
+  return raw.length > 155 ? raw.slice(0, 152) + '…' : raw
+}
 
 export default function Article() {
   const { slug } = useParams()
@@ -18,8 +28,27 @@ export default function Article() {
     )
   }
 
+  const canonicalUrl = `${SITE_URL}/articles/${article.slug}`
+  const description = getArticleDescription(article)
+  const pageTitle = `${article.title} | Dillon Shokar`
+
   return (
     <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content="Dillon Shokar" />
+        <meta property="article:author" content={article.author} />
+        <meta property="article:published_time" content={article.date} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={description} />
+      </Helmet>
       <ArticleNav />
       <main style={{ paddingTop: 63 }}>
         <header style={{ ...s.header, background: article.bg }}>
