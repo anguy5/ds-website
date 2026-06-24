@@ -39,7 +39,7 @@ const POSTS = [
 export default function Research() {
   return (
     <section id="research" style={s.section}>
-      <div style={s.header}>
+      <div style={s.header} className="research-header">
         <div>
           <p style={s.eyebrow}>Research</p>
           <h2 style={s.title}>Research & Analysis</h2>
@@ -51,11 +51,18 @@ export default function Research() {
           All Posts ↗
         </a>
       </div>
-      <div style={s.body}>
-        <div style={s.grid}>
+      <div style={s.body} className="research-body">
+        <div style={s.grid} className="research-grid">
           {POSTS.map(post => <PostCard key={post.url} post={post} />)}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .research-header { flex-direction: column !important; align-items: flex-start !important; padding: 36px 24px 24px !important; gap: 16px; }
+          .research-body { padding: 28px 24px 40px !important; }
+          .research-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   )
 }

@@ -51,7 +51,7 @@ export default function Article() {
       </Helmet>
       <ArticleNav />
       <main style={{ paddingTop: 63 }}>
-        <header style={{ ...s.header, background: article.bg }}>
+        <header style={{ ...s.header, background: article.bg }} className="article-header">
           <div style={s.headerInner}>
             <span style={s.tag}>{article.tag}</span>
             <h1 style={s.title}>{article.title}</h1>
@@ -71,9 +71,15 @@ export default function Article() {
 
 function ArticleNav() {
   return (
-    <nav style={s.nav}>
+    <nav style={s.nav} className="article-nav">
       <Link to="/" style={s.logo}>Dillon Shokar</Link>
       <Link to="/" style={s.back}>← Back to Home</Link>
+      <style>{`
+        @media (max-width: 768px) {
+          .article-nav { padding: 16px 24px !important; }
+          .article-header { padding: 48px 24px 40px !important; }
+        }
+      `}</style>
     </nav>
   )
 }

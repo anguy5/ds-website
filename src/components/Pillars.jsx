@@ -19,17 +19,18 @@ const PILLARS = [
 export default function Pillars() {
   return (
     <section id="pillars" style={s.section}>
-      <div style={s.header}>
+      <div style={s.header} className="pillars-header">
         <p style={s.eyebrow}>Expertise</p>
         <h2 style={s.title}>
           Three structural shifts redefining healthcare.
         </h2>
       </div>
-      <div style={s.body}>
-        <div style={s.grid}>
+      <div style={s.body} className="pillars-body">
+        <div style={s.grid} className="pillars-grid">
           {PILLARS.map((p, i) => (
             <div
               key={p.num}
+              className="pillar-item"
               style={{
                 ...s.pillar,
                 ...(i < PILLARS.length - 1 ? { borderRight: '0.5px solid var(--border)' } : {})
@@ -42,6 +43,15 @@ export default function Pillars() {
           ))}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .pillars-header { padding: 36px 24px 24px !important; }
+          .pillars-body { padding: 28px 24px 40px !important; }
+          .pillars-grid { grid-template-columns: 1fr !important; }
+          .pillar-item { border-right: none !important; margin-right: 0 !important; padding-right: 0 !important; padding-bottom: 32px; border-bottom: 0.5px solid var(--border); }
+          .pillar-item:last-child { border-bottom: none; padding-bottom: 0; }
+        }
+      `}</style>
     </section>
   )
 }

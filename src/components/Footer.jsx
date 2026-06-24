@@ -27,8 +27,8 @@ const COLS = [
 
 export default function Footer() {
   return (
-    <footer style={s.footer}>
-      <div style={s.top}>
+    <footer style={s.footer} className="footer-root">
+      <div style={s.top} className="footer-top">
         <div>
           <p style={s.brand}>Dillon Shokar</p>
           <p style={s.tagline}>
@@ -52,6 +52,15 @@ export default function Footer() {
       <div style={s.bottom}>
         <p style={s.copy}>© {new Date().getFullYear()} Dillon Shokar · Princeton Biopartners</p>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .footer-root { padding: 48px 24px 32px !important; }
+          .footer-top { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+        }
+        @media (max-width: 480px) {
+          .footer-top { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </footer>
   )
 }

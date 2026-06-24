@@ -9,7 +9,7 @@ export default function Bio() {
   return (
     <section id="about" style={s.section}>
       {/* Header row */}
-      <div style={s.header}>
+      <div style={s.header} className="bio-header">
         <p style={s.eyebrow}>About Dillon</p>
         <h2 style={s.heading}>
           Investing in the forces reshaping healthcare.
@@ -17,9 +17,9 @@ export default function Bio() {
       </div>
 
       {/* Two-column body */}
-      <div style={s.body}>
+      <div style={s.body} className="bio-body">
         {/* Sidebar */}
-        <div style={s.sidebar}>
+        <div style={s.sidebar} className="bio-sidebar">
           <p style={s.sideLabel}>Focus Areas</p>
           <div style={s.pills}>
             {PILLS.map(p => <span key={p} style={s.pill}>{p}</span>)}
@@ -32,7 +32,7 @@ export default function Bio() {
         </div>
 
         {/* Main text */}
-        <div style={s.main}>
+        <div style={s.main} className="bio-main">
           {[
             'Dillon Shokar is an investor and operator focused on the forces reshaping healthcare. As Co-Founder and CEO of Princeton Biopartners, he advises leading pharmaceutical and biotech companies on asset strategy, operating models, and integrated evidence generation, giving him a working view of the industry from the inside. His investing and writing concentrate on three structural shifts: the rise of AI-powered consumer health applications built around longevity, the growing role of biomarker-driven precision medicine, and the emergence of direct-to-patient distribution. Together, these forces are redefining how healthcare is personalized, accessed, and delivered.',
           ].map((para, i) => (
@@ -40,6 +40,14 @@ export default function Bio() {
           ))}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .bio-header { padding: 36px 24px 24px !important; }
+          .bio-body { grid-template-columns: 1fr !important; }
+          .bio-sidebar { padding: 28px 24px 32px !important; border-right: none !important; border-bottom: 0.5px solid var(--border); }
+          .bio-main { padding: 28px 24px 40px !important; }
+        }
+      `}</style>
     </section>
   )
 }

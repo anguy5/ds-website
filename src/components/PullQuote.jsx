@@ -1,12 +1,17 @@
 export default function PullQuote() {
   return (
-    <section style={s.section}>
+    <section style={s.section} className="pullquote-section">
       <div style={s.line} />
       <blockquote style={s.quote}>
         "The next era of drug development will be won by those who understand how evidence, data, and patient access intersect."
       </blockquote>
       <p style={s.attr}>Dillon Shokar</p>
       <div style={s.line} />
+      <style>{`
+        @media (max-width: 768px) {
+          .pullquote-section { padding: 52px 24px !important; }
+        }
+      `}</style>
     </section>
   )
 }

@@ -4,19 +4,19 @@ export default function Hero() {
   const [hover, setHover] = useState(false)
 
   return (
-    <section style={s.section}>
+    <section style={s.section} className="hero-section">
       {/* Left: headshot */}
-      <div style={s.photoPane}>
+      <div style={s.photoPane} className="hero-photo">
         <div style={s.photoFrame}>
           <img src={headshot} alt="Dillon Shokar" style={s.photo} />
         </div>
       </div>
 
       {/* Right: text */}
-      <div style={s.content}>
+      <div style={s.content} className="hero-content">
         <p style={s.eyebrow}>Biopharmaceutical Operator, Investor, Advisor</p>
         <h1 style={s.h1}>Building &<br />Backing Biotech</h1>
-       
+
         <p style={s.body}>
           Dillon is the Co-Founder and CEO of Princeton Biopartners, which advises leading pharmaceutical and biotech companies on asset strategy, operating models, and integrated evidence generation. He also builds and invests in early-stage healthcare companies, working with founders on how those businesses are designed, financed, and scaled.
 His perspective comes from both sides of the industry: building new companies, and advising the established ones.
@@ -38,6 +38,13 @@ His perspective comes from both sides of the industry: building new companies, a
           </span>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-section { grid-template-columns: 1fr !important; }
+          .hero-photo { min-height: 300px !important; }
+          .hero-content { padding: 40px 28px 52px !important; }
+        }
+      `}</style>
     </section>
   )
 }

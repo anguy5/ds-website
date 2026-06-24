@@ -8,9 +8,9 @@ const STATS = [
 
 export default function Stats() {
   return (
-    <section style={s.section}>
+    <section style={s.section} className="stats-section">
       {STATS.map((stat, i) => (
-        <div key={stat.label} style={{
+        <div key={stat.label} className="stats-item" style={{
           ...s.item,
           ...(i < STATS.length - 1 ? { borderRight: '0.5px solid rgba(247,244,239,0.1)' } : {})
         }}>
@@ -18,6 +18,13 @@ export default function Stats() {
           <span style={s.label}>{stat.label}</span>
         </div>
       ))}
+      <style>{`
+        @media (max-width: 768px) {
+          .stats-section { grid-template-columns: 1fr !important; }
+          .stats-item { border-right: none !important; padding: 40px 24px !important; border-bottom: 0.5px solid rgba(247,244,239,0.1); }
+          .stats-item:last-child { border-bottom: none; }
+        }
+      `}</style>
     </section>
   )
 }
